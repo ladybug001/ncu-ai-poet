@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI 妙笔生花 - 智能文案与诗歌创作平台，支持古诗、现代诗、朋友圈文案、对联、藏头诗等多种创作模式">
+  <title>AI 妙笔生花 — 智能诗歌文案创作</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✒️</text></svg>">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <!-- 动态背景光球 -->
+  <div class="bg-orbs">
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+  </div>
+
+  <div class="container">
+
+    <!-- 页头 -->
+    <header class="header">
+      <div class="header__icon">✒️</div>
+      <h1 class="header__title">妙笔生花</h1>
+      <p class="header__subtitle">AI 驱动的智能诗歌与文案创作平台</p>
+    </header>
+
+    <!-- 模式选择 -->
+    <section id="modeGrid" class="mode-grid" aria-label="创作模式选择">
+      <!-- JS 动态渲染 -->
+    </section>
+
+    <!-- 输入区 -->
+    <section class="input-section">
+      <div class="input-group">
+        <label class="input-label" for="topicInput">
+          <span class="input-label__dot"></span>
+          创作主题
+        </label>
+        <textarea
+          id="topicInput"
+          class="topic-input"
+          placeholder="如：秋天的月亮、离别、归乡"
+          maxlength="200"
+          rows="3"
+        ></textarea>
+        <div id="charCount" class="char-count">0 / 200</div>
+      </div>
+
+      <div class="input-group">
+        <label class="input-label" for="styleInput">
+          <span class="input-label__dot"></span>
+          风格偏好 <span style="color:var(--text-muted);text-transform:none;letter-spacing:0;font-weight:300">（可选）</span>
+        </label>
+        <input
+          id="styleInput"
+          class="style-input"
+          type="text"
+          placeholder="如：婉约、豪放、清新、忧郁、幽默…"
+        >
+      </div>
+    </section>
+
+    <!-- 生成按钮 -->
+    <button id="generateBtn" class="generate-btn">
+      <span id="btnText" class="btn-text">🎋 开始创作</span>
+    </button>
+
+    <!-- 输出区 -->
+    <section id="outputSection" class="output-section">
+      <div class="output-header">
+        <div id="outputTitle" class="output-title">✨ 创作结果</div>
+        <button id="copyBtn" class="copy-btn">📋 复制</button>
+      </div>
+      <div id="outputContent" class="output-content"></div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+      <p>AI 妙笔生花 · 人机协同程序设计课程作品</p>
+      <p style="margin-top:4px">Powered by <a href="https://siliconflow.cn" target="_blank" rel="noopener">SiliconFlow</a> & FastAPI</p>
+    </footer>
+
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
