@@ -91,7 +91,9 @@ async def generate(request: Request):
                 status_code=400
             )
 
-        if not API_KEY:
+        api_key = os.getenv("SILICONFLOW_API_KEY", "")
+        if not api_key:
+            print("当前所有的环境变量:", list(os.environ.keys())) # 打印出来看看有没有输错名字
             return JSONResponse(
                 {"error": "服务端未配置 API Key，请联系管理员"},
                 status_code=500
@@ -103,7 +105,7 @@ async def generate(request: Request):
             resp = await client.post(
                 API_URL,
                 headers={
-                    "Authorization": f"Bearer {API_KEY}",
+                    "Authorization": f"Bearer {api_key}",
                     "Content-Type": "application/json",
                 },
                 json={
