@@ -5,7 +5,7 @@ AI 文案诗歌生成器 - FastAPI 后端
 
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.responses import HTMLResponse, JSONResponse, FileResponse
 import httpx
 import os
 
@@ -74,6 +74,11 @@ async def root():
     """提供前端页面"""
     with open("static/index.html", "r", encoding="utf-8") as f:
         return HTMLResponse(content=f.read())
+
+@app.get("/419100250174.txt", response_class=FileResponse)
+async def serve_txt_file():
+    """提供校验文件"""
+    return FileResponse("419100250174.txt")
 
 
 @app.post("/api/generate")
